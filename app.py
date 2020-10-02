@@ -5,7 +5,6 @@ from views import view_blueprint
 from flask_cors import CORS
 
 
-
 def create_app():
     app_projects = Flask(__name__)
     app_projects.config['DEBUG'] = True
@@ -23,10 +22,11 @@ def setup_database(app_projects):
         db.create_all()
 
 
-if __name__ == '__main__':
-    app = create_app()
-    cors = CORS(app)
+app = create_app()
+cors = CORS(app)
 
+
+if __name__ == '__main__':
     if not os.path.isfile('database/projects.db'):
         setup_database(app)
 
